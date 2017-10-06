@@ -1,0 +1,23 @@
+ 266  openssl   base64   -e
+  267  openssl   base64   -e   -des3 
+  268  openssl   base64   -d   -des3 
+  269  ls
+  270  scp  send.py  172.16.9.9:
+  271  openssl   genrsa   1024 
+  272  openssl   genrsa   1024   >private.pem
+  273  cat  private.pem 
+  274  history 
+  275  gnome-screenshot  -a
+  276  ls
+  277  openssl   rsa  -in  private.pem  -pubout  
+  278  openssl   rsa  -in  private.pem  -pubout   >public.pem
+  279  history 
+  280  ls
+  281  vim  ok.txt
+  282  openssl  rsautl  -encrypt  -inkey public.pem            -in  ok.txt  
+  283  openssl  rsautl  -encrypt  -inkey public.pem  -pubin          -in  ok.txt  
+  284  history 
+  285  openssl  rsautl  -encrypt  -inkey public.pem  -pubin -in  ok.txt  >okenc.txt 
+  286  cat okenc.txt 
+  287  openssl  rsautl   -decrypt  -inkey private.pem  -in okenc.txt 
+
